@@ -115,3 +115,12 @@ function saveScore() {
     window.location.href = "highscores.html";
   }
 }
+
+function pressEnter(event) {
+  if (event.key === "Enter") {
+    saveScore();
+  }
+}
+
+submitBtn.onclick = saveScore;
+initialsA.onkeyup = pressEnter;
