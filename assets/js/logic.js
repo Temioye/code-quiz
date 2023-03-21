@@ -36,3 +36,18 @@ function startQuiz() {
   timerA.textContent = time;
   getQuestion();
 }
+
+// Function to get questions
+function getQuestion() {
+  var currentQuestion = questions[currentQuestionIndex];
+  questionTitle.textContent = currentQuestion.questions;
+  choicesA.innerHTML = "";
+  currentQuestion.choices.forEach(function (choice, i) {
+    var optionBtn = document.createElement("button");
+    optionBtn.setAttribute("class", "choice");
+    optionBtn.setAttribute("value", choice);
+    optionBtn.textContent = i + 1 + ". " + choice;
+    optionBtn.onclick = questionClick;
+    choicesA.appendChild(optionBtn);
+  });
+}
