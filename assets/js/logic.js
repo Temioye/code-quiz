@@ -82,3 +82,20 @@ function questionClick() {
     getQuestion();
   }
 }
+
+// funtion to end quiz
+function quizEnd() {
+  clearInterval(timerId);
+  endScreen.removeAttribute("class");
+
+  finalScore.textContent = time;
+  questionsA.setAttribute("class", "hide");
+}
+
+function countdown() {
+  time--;
+  timerA.textContent = time;
+  if (time <= 0) {
+    quizEnd();
+  }
+}
