@@ -24,3 +24,15 @@ function tick() {
     quizEnd();
   }
 }
+
+startBtn.onclick = startQuiz;
+
+// function to start quiz, timer and hide start screen
+function startQuiz() {
+  startScreen.setAttribute("class", "hide");
+  questionsA.removeAttribute("class");
+
+  timerId = setInterval(countdown, 1000);
+  timerA.textContent = time;
+  getQuestion();
+}
