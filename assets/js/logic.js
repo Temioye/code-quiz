@@ -99,3 +99,19 @@ function countdown() {
     quizEnd();
   }
 }
+
+// Function to save scores
+function saveScore() {
+  var initials = initialsA.value.trim();
+  if (initials !== "") {
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var newScore = {
+      score: time,
+      initials: initials,
+    };
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    window.location.href = "highscores.html";
+  }
+}
