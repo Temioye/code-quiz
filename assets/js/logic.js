@@ -15,3 +15,12 @@ var endScreen = document.getElementById("end-screen");
 var startScreen = document.getElementById("start-screen");
 var finalScore = document.getElementById("final-score");
 var questionTitle = document.getElementById("question-title");
+
+// Function to reduce time by one second
+function tick() {
+  time--;
+  timerA.textContent = time;
+  if (time <= 0) {
+    quizEnd();
+  }
+}
