@@ -51,3 +51,34 @@ function getQuestion() {
     choicesA.appendChild(optionBtn);
   });
 }
+
+// function for audio
+var correctAudio = new Audio("./assets/sfx/correct.wav");
+var incorrectAudio = new Audio("./assets/sfx/incorrect.wav");
+
+function questionClick() {
+  if (this.value !== questions[currentQuestionIndex].answer) {
+    time -= 10;
+    if (time < 0) {
+      time = 0;
+    }
+    // function for right or wrong answers
+    timerA.textContent = time;
+    feedbackA.textContent = "Wrong!";
+    incorrectAudio.play();
+  } else {
+    feedbackA.textContent = "Correct!";
+    correctAudio.play();
+  }
+  feedbackA.setAttribute("class", "feedback");
+  setTimeout(function () {
+    feedbackA.setAttribute("class", "feedback hide");
+  }, 1000);
+
+  currentQuestionIndex++;
+  if (currentQuestionIndex === questions.length) {
+    quizEnd();
+  } else {
+    getQuestion();
+  }
+}
