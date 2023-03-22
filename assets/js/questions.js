@@ -36,3 +36,5 @@ var questions = [
     answer: "//This is a comment",
   },
 ];
+
+// Questions from W3 schools and tutorialspoint.com
